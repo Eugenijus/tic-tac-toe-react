@@ -2,6 +2,12 @@
 
 This is simple Tic Tac Toe game implemenetation with React
 
+<img src="public/Empty.png" width="20%" alt="Tic-Tac-Toe Empty">
+<img src="public/X-wins.png" width="20%" alt="Tic-Tac-Toe X wins">
+<img src="public/O-wins.png" width="20%" alt="Tic-Tac-Toe O wins">
+<img src="public/Draw.png" width="20%" alt="Tic-Tac-Toe Draw">
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -127,7 +127,7 @@ function App() {
             ))}
           </div>
         </div>
-        {winner && <div>Winnder is {winner}</div>}
+        {winner && <div>Winner is {winner}</div>}
         {isDraw && <div>It's a draw!</div>}
         <button
           type="button"
