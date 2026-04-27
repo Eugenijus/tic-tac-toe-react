@@ -1,3 +1,29 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border: 1px solid gray;
+  font-weight: 600;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
