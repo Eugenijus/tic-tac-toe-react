@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 /**
@@ -29,7 +29,50 @@ function App() {
     ["", "X", ""],
   ])
 
+  useEffect(() => {
+    // check for win conditions
+    // check rows
+    for (let i = 0; i < 3; i++) {
+      if(grid[i][0] === grid[i][1] &&
+         grid[i][1] === grid[i][2] && 
+         grid[i][0] !== "") {
+        setWinner(grid[i][0]);
+      }
+    }
+    // check columns
+    for (let i = 0; i < 3; i++) {
+      if (grid[0][i] === grid[1][i] &&
+          grid[1][i] === grid[2][i] &&
+          grid[0][i] !== "") {
+        setWinner(grid[0][i]);
+      }
+    }
+    // check diagonals
+    if(grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2] && grid[0][0] !== "") {
+      setWinner(grid[0][0]);
+    }
+    if(grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0] && grid[0][2] !== "") {
+      setWinner(grid[0][2]);
+    }
+
+    // check for draw conditions
+    if (!winner) {
+      let isDraw = true;
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (grid[i][j] === "") {
+            isDraw = false;
+          }
+        }
+      }
+      setIsDraw(isDraw);
+    }
+  }, [grid])
+
   const resetGrid = () => {
+    setWinner(undefined);
+    setIsDraw(false);
+    setPerson("X");
     setGrid([
       ["", "", ""],
       ["", "", ""],
@@ -39,13 +82,19 @@ function App() {
 
   const handleCellClick = (event, rowIndex, colIndex) => {
     event.stopPropagation();
-    console.log("Cell clicked: ", rowIndex, colIndex);
-
+    if (winner || isDraw) {
+      return;
+    }
     // Don't update the cell if it's already filled
     if (grid[rowIndex][colIndex] !== "") {
       return;
+    } else {
+      const newGrid = [...grid];
+      newGrid[rowIndex][colIndex] = person;
+      setGrid(newGrid);
     }
 
+    console.log("Cell clicked: ", rowIndex, colIndex);
     setPerson(prevPerson => prevPerson === "X" ? "O" : "X");
   }
 
@@ -78,6 +127,8 @@ function App() {
             ))}
           </div>
         </div>
+        {winner && <div>Winnder is {winner}</div>}
+        {isDraw && <div>It's a draw!</div>}
         <button
           type="button"
           className="counter"
