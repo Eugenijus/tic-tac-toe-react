@@ -2,11 +2,11 @@
 
 This is simple Tic Tac Toe game implemenetation with React
 
-<div style="display: flex; gap: 10px;">
-  <img src="public/Empty.png" width="20%" alt="Tic-Tac-Toe Empty">
-  <img src="public/X-wins.png" width="20%" alt="Tic-Tac-Toe X wins">
-  <img src="public/O-wins.png" width="20%" alt="Tic-Tac-Toe O wins">
-  <img src="public/Draw.png" width="20%" alt="Tic-Tac-Toe Draw">
+<div style="display: flex; gap: 4px;">
+  <img src="public/Empty.png" width="25%" alt="Tic-Tac-Toe Empty">
+  <img src="public/X-wins.png" width="25%" alt="Tic-Tac-Toe X wins">
+  <img src="public/O-wins.png" width="25%" alt="Tic-Tac-Toe O wins">
+  <img src="public/Draw.png" width="25%" alt="Tic-Tac-Toe Draw">
 </div>
 
 # React + TypeScript + Vite
