@@ -1,9 +1,24 @@
 import { useState } from 'react'
 import './App.css'
 
+/**
+ * Tic Tac Toe game requirements:
+ * Show a 3x3 grid game board which allows two players to play.
+ * First turn is always "X", then O, then X, and so on.
+ * wins who either fills in a row, columnd or diagonal with their symbol first.
+ * 
+ * Implementation:
+ * 1) show a game board 3x3 grid with empty cells
+ * 2) allow user input and register clicked cell (either X or O, depending on whose turn it is)
+ * 3) check for win or draw conditions
+ * 4) show win or draw message
+ * 5) reset game board for new game
+ * 
+ */
+
 function App() {
   const [person, setPerson] = useState("X");
-  const [winner, setWinner] = useState("");
+  const [winner, setWinner] = useState(undefined);
   const [isDraw, setIsDraw] = useState(false);
   const [isGaemeOver, setIsGameOver] = useState(false);
 
